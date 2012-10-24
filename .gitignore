@@ -1,0 +1,23 @@
+.DS_Store
+
+# Java
+*.class
+target/
+build/
+
+# Node
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.o
+*.a
+npm-debug.log
+/node/node_modules/**/bin
+/node/node_modules/**/build
+.lock-wscript
+pids

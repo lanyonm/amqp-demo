@@ -1,0 +1,14 @@
+{
+  "author": "Michael Lanyon",
+  "name": "amqp-node",
+  "dependencies": {
+    "amqp": "~0.1.4",
+    "socket.io": "~0.9.10",
+    "express": "~3.0.0rc5",
+    "jade": "~0.27.6"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "./node_modules/mocha/bin/mocha --ignore-leaks test"
+  }
+}
