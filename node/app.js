@@ -23,19 +23,6 @@ server.listen(3000, function() {
   console.log('express server has started');
 });
 
-// send number over socket
-var socket;
-io.sockets.on('connection', function(sock) {
-  console.log('got a new socket: ' + sock);
-  socket = sock;
-});
-
-function updateValue(numVal) {
-  if (socket) {
-    socket.emit('new-number', numVal);
-  }
-}
-
 // do the AMQP stuff
 var connection = amqp.createConnection({url: "amqp://guest:guest@127.0.0.1:5672"}, {defaultExchangeName: ""});
 
@@ -48,7 +35,7 @@ connection.on('ready', function() {
     queue.bind('mike.demo', 'hello');
     queue.subscribe(function(message) {
       console.log(message.data.toString());
-      updateValue(message.data.toString());
+      io.sockets.emit('new-number', message.data.toString());
     });
   });
 });
